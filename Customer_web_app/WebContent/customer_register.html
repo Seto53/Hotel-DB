@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>customer register page</title>
+    <script>
+
+        function validate() {
+            let userID = document.getElementById("userID");
+            let custName = document.getElementById("CustName");
+            let SIN = document.getElementById("SIN");
+            let apt_number = document.getElementById("apt_number");
+            let street_number = document.getElementById("street_number");
+            let street_name = document.getElementById("street_name");
+            let city = document.getElementById("city");
+            let state = document.getElementById("state");
+            let ZIP = document.getElementById("ZIP");
+            let custPwd = document.getElementById("custPwd");
+            let custPwdagain = document.getElementById("custPwdagain");
+            if (userID.value === "" || custName.value === "" || custPwd.value === "" || custPwdagain.value === "" ||
+                SIN.value === "" || street_number.value === "" || street_name.value === "" || city.value === "" ||
+                state.value === "" || ZIP.value === "") {
+                alert("You need to fill all the information");
+                return false;
+            } else if (userID.value.length !== 4) {
+                alert("The length of SSN needs to be 4");
+                return false;
+            } else if (custPwd.value !== custPwdagain.value) {
+                alert("Passwords need to be same");
+                return false;
+            } else if (ZIP.value.length !== 6) {
+                alert("Invalid zip");
+                return false;
+            } else if (SIN.value.length !== 9) {
+                alert("Invalid sin");
+                return false;
+            } else
+                return true;
+        }
+
+    </script>
+</head>
+<body>
+<form method="post" action="cusRegister">
+    please input your ID:<input type="text" id="userID" name="userID"><br><br>
+    please input your name:<input type="text" id="CustName" name="CustName"><br><br>
+    please input your SIN:<input type="text" id="SIN" name="SIN" maxlength="9"><br><br>
+    please input your apartment number:<input type="text" id="apt_number" name="apt_number"><br><br>
+    please input your street number:<input type="text" id="street_number" name="street_number"><br><br>
+    please input your street name:<input type="text" id="street_name" name="street_name"><br><br>
+    please input your City:<input type="text" id="city" name="city"><br><br>
+    please input your State:<input type="text" id="state" name="state"><br><br>
+    please input your ZIP code:<input type="text" id="ZIP" name="ZIP" maxlength="6"><br><br>
+    please input your password:<input type="password" id="custPwd" name="custPwd"><br><br>
+    please input your password again:<input type="password" id="custPwdagain" name="custPwdagain"><br><br>
+    <button type="submit" value="submit" onclick="return validate();">submit</button>
+    <button type="reset" value="reset">reset</button>
+</form>
+
+</body>
+</html>
